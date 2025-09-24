@@ -1,0 +1,31 @@
+
+# Shopify App configuration
+# Fill in your own values before pushing with Shopify CLI
+name = "Free Shipping Progress Bar by Amplisio"
+client_id = "REPLACE_WITH_CLIENT_ID"
+application_url = "https://example.com"  # replace with your app's URL if/when you add a backend
+embedded = true
+
+[build]
+automatically_update_urls_on_dev = true
+dev_store_url = "REPLACE_WITH_YOUR_DEV_STORE.myshopify.com"
+
+[auth]
+redirect_urls = ["https://example.com/auth/callback"]
+
+[access_scopes]
+scopes = ""
+
+[webhooks]
+api_version = "2024-07"
+
+[app_proxy]
+url = "/apps/fspb"
+subpath = "fspb"
+prefix = "apps"
+
+# Theme App Extension declaration
+[[extensions]]
+type = "theme"
+name = "free-shipping-progress-bar"
+handle = "free-shipping-progress-bar"

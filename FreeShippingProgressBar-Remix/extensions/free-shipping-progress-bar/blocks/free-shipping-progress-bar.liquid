@@ -1,0 +1,147 @@
+
+{% comment %}
+  Free Shipping Progress Bar - App Embed Block
+  Renders a progress bar that updates with cart total via /cart.js
+{% endcomment %}
+
+<div id="fspb-root"
+  data-threshold="{{ block.settings.threshold | json }}"
+  data-before-text="{{ block.settings.before_text | escape }}"
+  data-after-text="{{ block.settings.after_text | escape }}"
+  data-position="{{ block.settings.position }}"
+  data-sticky="{{ block.settings.sticky }}"
+  data-bg="{{ block.settings.bg_color }}"
+  data-fill="{{ block.settings.fill_color }}"
+  data-text-color="{{ block.settings.text_color }}"
+  data-height="{{ block.settings.height }}"
+  data-radius="{{ block.settings.radius }}"
+  data-template="{{ block.settings.template }}"
+  data-countries="{{ block.settings.countries }}"
+  data-collections="{{ block.settings.collections }}"
+  style="display:block">
+</div>
+
+<script src="{{ 'progress-bar.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "Free Shipping Progress Bar",
+  "target": "body",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Progress bar settings"
+    },
+    {
+      "type": "range",
+      "id": "threshold",
+      "label": "Free shipping threshold (in store currency)",
+      "min": 0,
+      "max": 1000,
+      "step": 1,
+      "default": 50
+    },
+    {
+      "type": "text",
+      "id": "before_text",
+      "label": "Message before reaching threshold",
+      "default": "Spend {{amountRemaining}} more to get Free Shipping."
+    },
+    {
+      "type": "text",
+      "id": "after_text",
+      "label": "Message after reaching threshold",
+      "default": "🎉 You’ve unlocked Free Shipping!"
+    },
+    {
+      "type": "select",
+      "id": "position",
+      "label": "Position",
+      "options": [
+        { "value": "top", "label": "Top" },
+        { "value": "bottom", "label": "Bottom" },
+        { "value": "cart", "label": "Cart page only" }
+      ],
+      "default": "top"
+    },
+    {
+      "type": "checkbox",
+      "id": "sticky",
+      "label": "Sticky",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Style"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#F3F4F6"
+    },
+    {
+      "type": "color",
+      "id": "fill_color",
+      "label": "Progress color",
+      "default": "#111827"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#111827"
+    },
+    {
+      "type": "range",
+      "id": "height",
+      "label": "Bar height (px)",
+      "min": 20,
+      "max": 64,
+      "step": 2,
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "radius",
+      "label": "Corner radius (px)",
+      "min": 0,
+      "max": 24,
+      "step": 2,
+      "default": 12
+    },
+    {
+      "type": "select",
+      "id": "template",
+      "label": "Template",
+      "options": [
+        { "value": "minimal", "label": "Minimal" },
+        { "value": "pill", "label": "Pill" },
+        { "value": "glass", "label": "Glass" },
+        { "value": "banner", "label": "Banner" },
+        { "value": "compact", "label": "Compact" }
+      ],
+      "default": "minimal"
+    },
+    {
+      "type": "header",
+      "content": "Segmentation (Growth)"
+    },
+    {
+      "type": "text",
+      "id": "countries",
+      "label": "Show only for countries (comma-separated ISO codes, e.g., US,CA,DE)",
+      "default": ""
+    },
+    {
+      "type": "text",
+      "id": "collections",
+      "label": "Show only for collections handles (comma-separated)",
+      "default": ""
+    }
+  ],
+  "enabled_on": {
+    "templates": ["*"]
+  }
+}
+{% endschema %}

@@ -1,0 +1,27 @@
+{
+  "name": "Free Shipping Progress Bar",
+  "target": {
+    "app_embed": {
+      "name": "Free Shipping Progress Bar",
+      "settings": {
+        "heading": "Progress bar settings",
+        "threshold_label": "Free shipping threshold (in store currency)",
+        "before_text_label": "Message before reaching threshold",
+        "after_text_label": "Message after reaching threshold",
+        "position_label": "Position",
+        "sticky_label": "Sticky",
+        "style_heading": "Style",
+        "bg_color": "Background color",
+        "fill_color": "Progress color",
+        "text_color": "Text color",
+        "height": "Bar height (px)",
+        "radius": "Corner radius (px)",
+        "template": "Template",
+        "segment_heading": "Segmentation (Growth)",
+        "countries": "Show only for countries (comma-separated ISO codes, e.g., US,CA,DE)",
+        "collections": "Show only for collections handles (comma-separated)",
+        "ab_note": "A/B testing placeholder (coming soon)"
+      }
+    }
+  }
+}
